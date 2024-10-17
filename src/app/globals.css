@@ -1,0 +1,79 @@
+/* Import Tailwind base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom CSS variables for Mangrove Hotel colors */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-light: 230, 226, 221; /* Soft beige */
+  --background-dark: 55, 58, 54; /* Deep charcoal */
+  --highlight-color: 212, 129, 102; /* Warm peach */
+  --link-color: 25, 118, 210; /* Default link color */
+}
+
+/* Dark mode settings */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-light: 55, 58, 54; /* Deep charcoal */
+    --background-dark: 0, 0, 0;     /* Black for deeper contrast */
+    --link-color: 100, 181, 246; /* Light mode link color */
+  }
+}
+
+/* Apply global body styles */
+body {
+  font-family: 'Inter', sans-serif; /* Font set to Inter */
+  background-color: rgb(var(--background-light)); /* Soft beige background */
+  color: rgb(var(--foreground-rgb)); /* Adjust text color based on mode */
+  margin: 0;
+  padding: 20px; /* Adds padding around the content */
+  font-family: 'Roboto', sans-serif; /* Global font for whole app */
+  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transitions */
+}
+
+/* Dark mode background */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(var(--background-dark)); /* Darker background */
+  }
+}
+
+/* Add consistent padding and margin for all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global link styles */
+a {
+  color: rgb(var(--link-color));
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+a:hover {
+  text-decoration: underline;
+  color: rgb(var(--link-color)); /* Maintain link color on hover */
+}
+
+/* Highlight important sections with accent colors */
+.highlight {
+  background-color: rgb(var(--highlight-color));
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.accent {
+  color: rgb(var(--highlight-color));
+}
+
+/* Add a custom utility class for balanced text wrapping */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
